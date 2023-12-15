@@ -323,6 +323,10 @@ cdef extern from "libavcodec/avcodec.h" nogil:
 
     cdef AVFrame* avcodec_alloc_frame()
 
+    cdef struct AVPacketSideData:
+        uint8_t * data
+        int size
+
     cdef struct AVPacket:
 
         int64_t pts
@@ -336,6 +340,8 @@ cdef extern from "libavcodec/avcodec.h" nogil:
         int duration
 
         int64_t pos
+        AVPacketSideData * side_data
+        int side_data_elems
 
     cdef int avcodec_fill_audio_frame(
         AVFrame *frame,

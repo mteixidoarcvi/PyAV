@@ -210,3 +210,14 @@ cdef class Packet(Buffer):
                 self.ptr.flags |= lib.AV_PKT_FLAG_CORRUPT
             else:
                 self.ptr.flags &= ~(lib.AV_PKT_FLAG_CORRUPT)
+
+from libc.stdint cimport uintptr_t
+from cpython.bytes cimport PyBytes_FromStringAndSize
+
+def getpacketsidedata(Packet pkt):
+    cdef bytes result
+    if pkt.ptr.side_data_elems>0:
+      result = PyBytes_FromStringAndSize(<char*>pkt.ptr.side_data.data, pkt.ptr.side_data.size)
+      return result
+    else:
+      return None

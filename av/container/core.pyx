@@ -431,3 +431,11 @@ def open(
         container_options, stream_options, metadata_encoding, metadata_errors,
         buffer_size, open_timeout, read_timeout, io_open,
     )
+
+from libc.stdint cimport uintptr_t
+from cpython.bytes cimport PyBytes_FromStringAndSize
+
+def getcontainerdata(Container cont):
+    cdef bytes result = PyBytes_FromStringAndSize(<char*>cont.ptr.priv_data, 4*8)
+    return <uintptr_t> cont.ptr.priv_data, result
+

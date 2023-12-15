@@ -183,6 +183,8 @@ cdef extern from "libavformat/avformat.h" nogil:
         int flags
         int64_t max_analyze_duration
 
+        void *priv_data
+
         void *opaque
 
         int (*io_open)(
