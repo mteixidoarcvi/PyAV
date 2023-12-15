@@ -12,6 +12,7 @@ from Cython.Compiler.AutoDocTransforms import EmbedSignature
 from setuptools import Extension, find_packages, setup
 
 
+
 FFMPEG_LIBRARIES = [
     "avformat",
     "avcodec",

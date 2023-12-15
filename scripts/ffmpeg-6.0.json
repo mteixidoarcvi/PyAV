@@ -1,3 +1,3 @@
 {
-    "urls": ["https://github.com/PyAV-Org/pyav-ffmpeg/releases/download/6.0.0-1/ffmpeg-{platform}.tar.gz"]
+    "urls": ["https://github.com/mteixidoarcvi/pyav-ffmpeg/releases/download/v1.0.0/ffmpeg-{platform}.tar.gz"]
 }
